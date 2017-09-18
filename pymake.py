@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os
 from optparse import OptionParser
-from ConfigParser import SafeConfigParser
+from configparser import ConfigParser
 
 ## Global variables
 VERSION = "0.5"
@@ -51,7 +51,7 @@ def parseCommandline():
 
 def parseConfig(fileType):
     global flags, compiler, installPath
-    conf = SafeConfigParser()
+    conf = ConfigParser()
     f = conf.read(os.path.expanduser(configFile))
     if len(f) == 0:
         debugPrint("Unable to find config file at " + configFile)
